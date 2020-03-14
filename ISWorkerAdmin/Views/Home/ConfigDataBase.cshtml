@@ -1,0 +1,68 @@
+@{
+    ViewData["Title"] = "ISWorker";
+}
+
+<div class="container h-100 mt-3">
+    <div class="text-center">
+        <h1 class="display-5 pt-10">Informe as configurações para instalação do ISWorkerAdmin</h1>
+    </div>
+    <div class="container-fluid mt-5">        
+        <div class="row 100 justify-content-center align-items-center">
+            <div class="col-md-8">   
+                <div class="card">
+                    <div class="card-header" >
+                        <div class="text-center">
+                            <h3><i class="fas fa-cogs mr-1"></i> Configuração de conexão com banco de dados</h3>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form class="form-horizontal">
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label for="selectDatabase" class="col-md-3 col-form-label">Driver</label>
+                                <div class="col-md-9">
+                                    <select class="custom-select" id="selectDataBase" placeholder="Driver">
+                                    <option>MS SQL Server</option>
+                                    <option>MySQL</option>
+                                    <option>Postgree SQL</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="serverName" class="col-md-3 col-form-label">Server Name</label>
+                                <div class="col-md-9">
+                                <input type="email" class="form-control" id="serverName" placeholder="Server Name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="databasename" class="col-md-3 col-form-label">Database Name</label>
+                                <div class="col-md-9">
+                                <input type="email" class="form-control" id="databasename" placeholder="Database Name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="user" class="col-md-3 col-form-label">Usuário</label>
+                                <div class="col-md-9">
+                                <input type="email" class="form-control" id="user" placeholder="Usuário">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword3" class="col-md-3 col-form-label">Senha</label>
+                                <div class="col-md-9">
+                                <input type="password" class="form-control" id="inputPassword3" placeholder="Senha">
+                                </div>
+                            </div>                            
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-success btn-lg">Testar configurações</button>
+                            <button type="submit" class="btn btn-primary btn-lg float-right">Salvar e Instalar</button>
+                        </div>
+                        <!-- /.card-footer -->
+                    </form>
+                </div>             
+            </div>
+        </div>
+    </div>  
+</div>

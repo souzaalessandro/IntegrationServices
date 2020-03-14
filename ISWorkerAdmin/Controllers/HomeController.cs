@@ -18,9 +18,10 @@ namespace ISWorkerAdmin.Controllers
             _logger = logger;
         }
 
+        [ViewLayout("_BlankLayout")]
         public IActionResult Index()
-        {
-            return View();
+        {           
+            return View("ConfigDataBase");
         }
 
         public IActionResult Privacy()
