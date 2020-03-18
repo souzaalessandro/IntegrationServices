@@ -6,22 +6,32 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ISWorkerAdmin.Models;
+using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Configuration;
+using ISWorkerAdmin.Data;
 
 namespace ISWorkerAdmin.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly DataBaseConfiguration _configDataBase;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IOptions<DataBaseConfiguration> configdatabase)
         {
             _logger = logger;
+            _configDataBase = configdatabase.Value ?? throw new ArgumentException(nameof(DataBaseConfiguration));   
         }
 
-        [ViewLayout("_BlankLayout")]
+        
         public IActionResult Index()
-        {           
-            return View("ConfigDataBase");
+        {         
+            if ( string.IsNullOrEmpty(_configDataBase.DataBaseName))  
+            {
+                return RedirectToAction("Index","ConfigWorker");
+            }
+
+            return View();
         }
 
         public IActionResult Privacy()

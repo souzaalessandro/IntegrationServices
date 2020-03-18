@@ -1,6 +1,9 @@
 @{
     ViewData["Title"] = "ISWorker";
 }
+@{
+    Layout = "~/Views/Shared/_BlankLayout.cshtml";
+}
 
 <div class="container mt-2">
         <div id="modalFrontSide" style="display: none; width: 50%; position: fixed; z-index: 100001; left: 25%; top: 40%;">
@@ -86,13 +89,18 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-success btn-lg">Testar configurações</button>
-                            <button type="submit" class="btn btn-primary btn-lg float-right">Salvar e Instalar</button>
+                            <button type="submit" id="btnSave" class="btn btn-success btn-lg" onclick=@Url.Action("TestConfig","ConfigWorkerController",FormMethod.Post)>Testar configurações</button>
+                            <button type="submit" id="btnTest" class="btn btn-primary btn-lg float-right">Salvar e Instalar</button>
                         </div>
                         <!-- /.card-footer -->
                     </form>
                 </div>             
             </div>
+
         </div>
     </div>  
 </div>
+
+@section scripts{    
+    <script src="~/js/configworker.js"></script>
+}
