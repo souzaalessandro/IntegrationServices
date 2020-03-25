@@ -9,6 +9,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ISWorkerAdmin.Data;
+using ISWorker.Dao;
+using ISWorkerAdmin.Dao;
+using Microsoft.EntityFrameworkCore;
 
 namespace ISWorkerAdmin
 {
@@ -26,6 +29,10 @@ namespace ISWorkerAdmin
         {
             services.AddControllersWithViews();
             services.Configure<DataBaseConfiguration>(Configuration.GetSection("DataBaseConfig"));
+            services.AddDbContext<AppConnection>(options => {
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                 });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
